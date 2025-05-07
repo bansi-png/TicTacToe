@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e2124;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.player-toggle {
+    display: flex;
+    background-color: #292d33;
+    border-radius: 40px;
+    padding: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 150px;
+}
+
+.toggle-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-option span {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.toggle-option.x span {
+    color: #ff5573;
+}
+
+.toggle-option.o span {
+    color: #4c8bf5;
+}
+
+.toggle-option.active {
+    background-color: #3a3f47;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    width: 300px;
+    height: 300px;
+}
+
+.cell {
+    background-color: #292d33;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 600;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+}
+
+.cell:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.4);
+}
+
+.cell.x::before {
+    content: "X";
+    color: #ff5573;
+}
+
+.cell.o::before {
+    content: "O";
+    color: #4c8bf5;
+}
+
+/* Made by Bansi Jhala
+Student at GLS University, Ahmedabad, Gujarat, India
+email: bansijhala@yahoo.com
+instagram: https://www.instagram.com/bansijhala/
+linkedin: https://www.linkedin.com/in/bansijhala/
+github: https://github.com/bansi-png */
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #292d33;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #353a43;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.game-status {
+    height: 30px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.game-status.winner-x span {
+    color: #ff5573;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.game-status.winner-o span {
+    color: #4c8bf5;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.game-status.tie span {
+    color: #ffd166;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.game-status.active {
+    animation: status-pop 0.5s ease-in-out;
+}
+
+@keyframes status-pop {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes winner {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.cell.winner {
+    animation: winner 0.5s ease-in-out;
+    background-color: #353a43;
+}
+
+.game-footer {
+    margin-top: 25px;
+    color: #ffffff;
+    opacity: 0.7;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+}
